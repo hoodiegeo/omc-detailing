@@ -74,12 +74,11 @@ header{
   position:relative;overflow:hidden;
   padding:130px 0 110px;
   border-bottom:1px solid var(--line);
-  /* PLACEHOLDER hero background — swap url() for the final image */
-  background:url('images/o-26.jpg') center 62%/cover no-repeat;
+  background:url('images/hero.png') center 40%/cover no-repeat;
 }
-.hero::after{ /* gradient overlay so text stays readable */
+.hero::after{ /* gradient overlay so text stays readable against the bright paint */
   content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(10,12,15,.95) 30%,rgba(10,12,15,.72) 60%,rgba(10,12,15,.45));
+  background:linear-gradient(100deg,rgba(10,12,15,.97) 25%,rgba(10,12,15,.86) 55%,rgba(10,12,15,.55));
 }
 .hero::before{ /* light bar glow on the "ceiling" */
   content:"";position:absolute;top:0;left:15%;right:15%;height:1px;z-index:2;
