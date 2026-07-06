@@ -152,18 +152,35 @@ h2{
 .process-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)}
 .process-photo figcaption{font-family:var(--mono);font-size:.7rem;color:var(--steel);padding-top:10px;letter-spacing:.08em;text-transform:uppercase}
 
-/* gallery */
+/* gallery carousel */
+.carousel-wrap{position:relative}
 .gallery{
-  display:grid;gap:16px;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:220px;
-  grid-auto-flow:dense;
+  display:flex;gap:16px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:20px;margin-bottom:-20px;
+  scrollbar-width:thin;scrollbar-color:var(--accent) var(--panel);
 }
-.gallery a{display:block;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.gallery::-webkit-scrollbar{height:6px}
+.gallery::-webkit-scrollbar-track{background:var(--panel)}
+.gallery::-webkit-scrollbar-thumb{background:var(--accent)}
+.gallery a{
+  flex:0 0 auto;scroll-snap-align:start;
+  display:block;overflow:hidden;border:1px solid var(--line);background:var(--panel);
+  width:320px;height:400px;
+}
+.gallery a.g-wide{width:460px}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:saturate(.92)}
 .gallery a:hover img,.gallery a:focus-visible img{transform:scale(1.04);filter:saturate(1.05)}
-.g-tall{grid-row:span 2}
-.g-wide{grid-column:span 2}
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:44px;height:44px;border:1px solid var(--accent);background:rgba(10,12,15,.8);
+  color:#ff4a52;font-family:var(--mono);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;border-radius:50%;
+  transition:background .2s,color .2s;
+}
+.carousel-btn:hover,.carousel-btn:focus-visible{background:var(--accent);color:#fff}
+.carousel-prev{left:-14px}
+.carousel-next{right:-14px}
 
 /* reviews */
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
@@ -191,7 +208,8 @@ footer.site img{width:34px;height:34px;border-radius:50%}
 @media (max-width:900px){
   .svc-layout{grid-template-columns:1fr}
   .svc-photos{grid-template-columns:1fr 1fr;position:static}
-  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  .gallery a{width:260px;height:330px}
+  .gallery a.g-wide{width:360px}
 }
 @media (max-width:760px){
   .nav-links li:not(:last-child){display:none}
@@ -199,6 +217,7 @@ footer.site img{width:34px;height:34px;border-radius:50%}
   .process-photo{grid-template-columns:1fr}
   .spec td{display:block;padding:8px 0}
   .spec tr{display:block;padding:20px 0}
+  .carousel-btn{display:none}
   .spec .price{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){
@@ -326,16 +345,20 @@ footer.site img{width:34px;height:34px;border-radius:50%}
         <h2>Recent work</h2>
         <span class="tag">SHOT ON SITE — NO STUDIO</span>
       </div>
-      <div class="gallery">
-        <a href="images/o-26.jpg" class="g-tall"><img src="images/o-26.jpg" alt="Murdered-out Rolls-Royce Ghost after a full exterior detail" loading="lazy"></a>
-        <a href="images/o-24.jpg" class="g-tall"><img src="images/o-24.jpg" alt="Deep gloss on a blue BMW M8 hood" loading="lazy"></a>
-        <a href="images/o-21.jpg" class="g-wide"><img src="images/o-21.jpg" alt="Freshly detailed Toyota Camry next to the OMC mobile unit" loading="lazy"></a>
-        <a href="images/o-25.jpg"><img src="images/o-25.jpg" alt="Kia Telluride front end, washed and dressed" loading="lazy"></a>
-        <a href="images/o-19.jpg"><img src="images/o-19.jpg" alt="Lifted GMC Sierra in foam during a decon wash" loading="lazy"></a>
-        <a href="images/o-27.jpg" class="g-wide"><img src="images/o-27.jpg" alt="Black Mercedes-Benz CLA with a glass-like finish" loading="lazy"></a>
-        <a href="images/o-20.jpg" class="g-tall"><img src="images/o-20.jpg" alt="Chrome wheels and clean panels on a GMC Sierra" loading="lazy"></a>
-        <a href="images/o-29.jpg"><img src="images/o-29.jpg" alt="Rolls-Royce interior detailed front to back" loading="lazy"></a>
-        <a href="images/o-22.jpg"><img src="images/o-22.jpg" alt="OMC Detailing van with logo, on site at a customer's home" loading="lazy"></a>
+      <div class="carousel-wrap">
+        <button class="carousel-btn carousel-prev" type="button" aria-label="Scroll gallery left">&#8249;</button>
+        <div class="gallery" id="galleryTrack">
+          <a href="images/o-26.jpg"><img src="images/o-26.jpg" alt="Murdered-out Rolls-Royce Ghost after a full exterior detail" loading="lazy"></a>
+          <a href="images/o-24.jpg"><img src="images/o-24.jpg" alt="Deep gloss on a blue BMW M8 hood" loading="lazy"></a>
+          <a href="images/o-21.jpg" class="g-wide"><img src="images/o-21.jpg" alt="Freshly detailed Toyota Camry next to the OMC mobile unit" loading="lazy"></a>
+          <a href="images/o-25.jpg"><img src="images/o-25.jpg" alt="Kia Telluride front end, washed and dressed" loading="lazy"></a>
+          <a href="images/o-19.jpg"><img src="images/o-19.jpg" alt="Lifted GMC Sierra in foam during a decon wash" loading="lazy"></a>
+          <a href="images/o-27.jpg" class="g-wide"><img src="images/o-27.jpg" alt="Black Mercedes-Benz CLA with a glass-like finish" loading="lazy"></a>
+          <a href="images/o-20.jpg"><img src="images/o-20.jpg" alt="Chrome wheels and clean panels on a GMC Sierra" loading="lazy"></a>
+          <a href="images/o-29.jpg"><img src="images/o-29.jpg" alt="Rolls-Royce interior detailed front to back" loading="lazy"></a>
+          <a href="images/o-22.jpg"><img src="images/o-22.jpg" alt="OMC Detailing van with logo, on site at a customer's home" loading="lazy"></a>
+        </div>
+        <button class="carousel-btn carousel-next" type="button" aria-label="Scroll gallery right">&#8250;</button>
       </div>
     </div>
   </section>
@@ -383,5 +406,16 @@ footer.site img{width:34px;height:34px;border-radius:50%}
   <span>Car wash mobile &amp; detailing · The deep clean expert</span>
 </footer>
 
+<script>
+(function(){
+  var track = document.getElementById('galleryTrack');
+  var prev = document.querySelector('.carousel-prev');
+  var next = document.querySelector('.carousel-next');
+  if(!track||!prev||!next) return;
+  function step(){ return track.querySelector('a').offsetWidth + 16; }
+  prev.addEventListener('click', function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+  next.addEventListener('click', function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
+})();
+</script>
 </body>
 </html>
