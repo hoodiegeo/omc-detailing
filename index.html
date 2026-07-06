@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMC Detailing — Mobile Auto Detailing in Pacoima, CA</title>
+<meta name="description" content="OMC Detailing brings showroom-grade interior and exterior detailing, paint correction, and ceramic coating to your driveway. Serving Pacoima and the San Fernando Valley.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --obsidian:#0A0C0F;
+  --panel:#14171C;
+  --panel-2:#1B1F26;
+  --chrome:#D6DAE0;
+  --steel:#7A828E;
+  --accent:#E01B24;
+  --accent-dim:rgba(224,27,36,.16);
+  --line:#242932;
+  --display:'Archivo',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--obsidian);
+  color:var(--chrome);
+  font-family:var(--display);
+  font-weight:340;
+  font-variation-settings:'wdth' 100;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,12,15,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{
+  display:flex;align-items:center;gap:12px;
+  font-weight:900;font-variation-settings:'wdth' 125;
+  letter-spacing:.04em;font-size:1.05rem;text-decoration:none;
+}
+.logo img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{
+  text-decoration:none;color:var(--steel);font-size:.85rem;
+  letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--chrome)}
+.btn{
+  display:inline-block;text-decoration:none;font-family:var(--mono);
+  font-size:.85rem;padding:.7em 1.5em;border:1px solid var(--accent);
+  color:#ff4a52;background:transparent;border-radius:2px;
+  transition:background .2s,color .2s;
+}
+.btn:hover,.btn:focus-visible{background:var(--accent);color:#fff}
+.btn-solid{background:var(--accent);color:#fff;font-weight:500}
+.btn-solid:hover,.btn-solid:focus-visible{background:#ff3038}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:130px 0 110px;
+  border-bottom:1px solid var(--line);
+  /* PLACEHOLDER hero background — swap url() for the final image */
+  background:url('images/o-26.jpg') center 62%/cover no-repeat;
+}
+.hero::after{ /* gradient overlay so text stays readable */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(10,12,15,.95) 30%,rgba(10,12,15,.72) 60%,rgba(10,12,15,.45));
+}
+.hero::before{ /* light bar glow on the "ceiling" */
+  content:"";position:absolute;top:0;left:15%;right:15%;height:1px;z-index:2;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  box-shadow:0 0 60px 18px var(--accent-dim);
+}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{
+  font-family:var(--mono);font-size:.8rem;color:#ff4a52;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;
+}
+.hero h1{
+  font-weight:900;font-variation-settings:'wdth' 122;
+  font-size:clamp(2.6rem,7.5vw,5.4rem);
+  line-height:1.02;letter-spacing:.01em;text-transform:uppercase;
+  background:linear-gradient(100deg,var(--chrome) 40%,#fff 50%,var(--chrome) 60%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:sweep 6s ease-in-out infinite;
+}
+@keyframes sweep{
+  0%,55%{background-position:120% 0}
+  85%,100%{background-position:-40% 0}
+}
+.hero p.lede{
+  max-width:34em;margin-top:26px;color:#aab1bb;font-size:1.08rem;
+}
+.hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{
+  margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.8rem;color:var(--steel);
+}
+.hero-meta b{display:block;color:var(--chrome);font-size:.95rem;font-weight:500}
+
+/* ---------- sections ---------- */
+section{padding:90px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+h2{
+  font-weight:800;font-variation-settings:'wdth' 118;
+  text-transform:uppercase;font-size:clamp(1.5rem,3.4vw,2.2rem);letter-spacing:.02em;
+}
+.sec-head .tag{font-family:var(--mono);font-size:.78rem;color:#ff4a52;letter-spacing:.1em}
+
+/* services spec sheet */
+.spec{width:100%;border-collapse:collapse}
+.spec tr{border-top:1px solid var(--line);transition:background .2s}
+.spec tr:hover{background:var(--panel)}
+.spec td{padding:26px 16px;vertical-align:top}
+.spec .svc{font-weight:700;font-variation-settings:'wdth' 112;font-size:1.12rem;text-transform:uppercase;white-space:nowrap}
+.spec .desc{color:var(--steel);font-size:.95rem;max-width:38em}
+.spec .price{font-family:var(--mono);color:#ff4a52;text-align:right;white-space:nowrap;font-size:.95rem}
+.spec .price small{display:block;color:var(--steel);font-size:.72rem;margin-top:4px}
+.note{font-family:var(--mono);font-size:.75rem;color:var(--steel);margin-top:20px}
+
+/* services side photo strip */
+.svc-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start}
+.svc-photos{display:grid;gap:16px;position:sticky;top:90px}
+.svc-photos figure{margin:0;background:var(--panel);border:1px solid var(--line)}
+.svc-photos img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.svc-photos figcaption{font-family:var(--mono);font-size:.7rem;color:var(--steel);padding:10px 12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--panel);padding:32px 26px}
+.step h3{font-weight:700;text-transform:uppercase;font-size:1rem;font-variation-settings:'wdth' 112;margin:14px 0 10px}
+.step p{color:var(--steel);font-size:.9rem}
+.step .k{font-family:var(--mono);color:#ff4a52;font-size:.78rem}
+.process-photo{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.process-photo figure{margin:0}
+.process-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)}
+.process-photo figcaption{font-family:var(--mono);font-size:.7rem;color:var(--steel);padding-top:10px;letter-spacing:.08em;text-transform:uppercase}
+
+/* gallery */
+.gallery{
+  display:grid;gap:16px;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  grid-auto-flow:dense;
+}
+.gallery a{display:block;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:saturate(.92)}
+.gallery a:hover img,.gallery a:focus-visible img{transform:scale(1.04);filter:saturate(1.05)}
+.g-tall{grid-row:span 2}
+.g-wide{grid-column:span 2}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.quote{background:var(--panel);border:1px solid var(--line);padding:30px;border-radius:2px}
+.quote p{font-size:.98rem}
+.quote footer{margin-top:18px;font-family:var(--mono);font-size:.78rem;color:var(--steel)}
+.stars{color:var(--accent);letter-spacing:.2em;margin-bottom:14px;font-size:.85rem}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
+.contact-grid h2{margin-bottom:20px}
+.contact-grid p{color:var(--steel);max-width:30em}
+.info{font-family:var(--mono);font-size:.9rem;display:grid;gap:20px;align-content:start}
+.info div b{display:block;color:#ff4a52;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;font-family:var(--display);font-weight:600}
+.info a{color:var(--chrome);text-decoration:none;border-bottom:1px solid var(--line)}
+.info a:hover{border-color:var(--accent)}
+.contact-photo{margin-top:36px;max-width:340px}
+.contact-photo img{border:1px solid var(--line)}
+.contact-photo figcaption{font-family:var(--mono);font-size:.7rem;color:var(--steel);padding-top:10px;letter-spacing:.08em;text-transform:uppercase}
+
+footer.site{padding:36px 0;border-bottom:none;font-family:var(--mono);font-size:.75rem;color:var(--steel);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer.site .fl{display:flex;align-items:center;gap:12px}
+footer.site img{width:34px;height:34px;border-radius:50%}
+
+@media (max-width:900px){
+  .svc-layout{grid-template-columns:1fr}
+  .svc-photos{grid-template-columns:1fr 1fr;position:static}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+}
+@media (max-width:760px){
+  .nav-links li:not(:last-child){display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .process-photo{grid-template-columns:1fr}
+  .spec td{display:block;padding:8px 0}
+  .spec tr{display:block;padding:20px 0}
+  .spec .price{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero h1{animation:none;background-position:50% 0}
+  .gallery img{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <img src="images/logo.jpg" alt="OMC Detailing logo">
+      OMC<span>·</span>DETAILING
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a class="btn" href="#contact">Book a detail</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Mobile detailing · Pacoima &amp; the San Fernando Valley</p>
+      <h1>Your car,<br>under better light.</h1>
+      <p class="lede">OMC Detailing brings showroom-grade interior and exterior work to your driveway — deep cleans, paint correction, and ceramic protection, finished to a standard we'd inspect under a light bar.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="tel:+18189431944">Get pricing &amp; availability</a>
+        <a class="btn" href="#services">See what's included</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>We come to you</b>Home, office, or fleet lot</div>
+        <div><b>Fully equipped</b>Water &amp; power on board</div>
+        <div><b>Pacoima, CA</b>Serving the SFV &amp; nearby LA</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Services</h2>
+        <span class="tag">SPEC SHEET — SEDAN BASE RATE</span>
+      </div>
+      <div class="svc-layout">
+        <div>
+          <table class="spec">
+            <tr>
+              <td class="svc">Express Wash</td>
+              <td class="desc">Hand wash, wheels and tires, windows in and out, quick interior vacuum, and tire dressing. The maintenance detail between full details.</td>
+              <td class="price">from $60<small>~1 hr</small></td>
+            </tr>
+            <tr>
+              <td class="svc">Interior Detail</td>
+              <td class="desc">Full vacuum, steam clean, shampooed carpets and seats, leather conditioned, every vent, seam, and cupholder addressed. Kid and pet messes welcome.</td>
+              <td class="price">from $140<small>2–3 hrs</small></td>
+            </tr>
+            <tr>
+              <td class="svc">Full Detail</td>
+              <td class="desc">Complete interior detail plus exterior hand wash, clay bar decontamination, and a machine-applied sealant for months of gloss and protection.</td>
+              <td class="price">from $220<small>3–5 hrs</small></td>
+            </tr>
+            <tr>
+              <td class="svc">Paint Correction</td>
+              <td class="desc">Multi-stage machine polishing to remove swirls, oxidation, and light scratches. Finished paint is inspected panel by panel under LED light.</td>
+              <td class="price">by quote<small>condition-based</small></td>
+            </tr>
+            <tr>
+              <td class="svc">Ceramic Coating</td>
+              <td class="desc">Professional-grade ceramic protection over corrected paint. Years of hydrophobic self-cleaning gloss instead of months.</td>
+              <td class="price">by quote<small>includes correction</small></td>
+            </tr>
+          </table>
+          <p class="note">* Base rates for sedans; SUVs, trucks, and heavy-condition vehicles quoted on request. Text a few photos to (818) 943-1944 for an exact price.</p>
+        </div>
+        <div class="svc-photos">
+          <figure>
+            <img src="images/o-24.jpg" alt="Deep blue BMW M8 with a mirror-gloss finish after a full detail" loading="lazy">
+            <figcaption>Full detail — BMW M8</figcaption>
+          </figure>
+          <figure>
+            <img src="images/o-29.jpg" alt="Detailed Rolls-Royce interior with conditioned leather and clean trim" loading="lazy">
+            <figcaption>Interior detail — Rolls-Royce</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How a detail runs</h2>
+        <span class="tag">EVERY VEHICLE, SAME STANDARD</span>
+      </div>
+      <div class="process">
+        <div class="step"><span class="k">WALKAROUND</span><h3>Inspect</h3><p>We walk the car with you, note problem areas, and confirm the price before any work starts.</p></div>
+        <div class="step"><span class="k">DECON</span><h3>Deep clean</h3><p>Wash, iron and tar removal, clay bar, steam — contamination comes off before anything shines.</p></div>
+        <div class="step"><span class="k">FINISH</span><h3>Protect</h3><p>Sealant, wax, or ceramic locks the finish in so it stays cleaner, longer, between visits.</p></div>
+        <div class="step"><span class="k">LIGHT CHECK</span><h3>Final pass</h3><p>Panel-by-panel inspection under LED light. You approve the work before we pack up.</p></div>
+      </div>
+      <div class="process-photo">
+        <figure>
+          <img src="images/o-23.jpg" alt="Lifted GMC truck covered in foam during the decontamination wash" loading="lazy">
+          <figcaption>Decon stage — foam bath before the hand wash</figcaption>
+        </figure>
+        <figure>
+          <img src="images/o-28.jpg" alt="White GMC 2500HD finished and drying in the evening light" loading="lazy">
+          <figcaption>Final pass — GMC 2500HD, done in your driveway</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Recent work</h2>
+        <span class="tag">SHOT ON SITE — NO STUDIO</span>
+      </div>
+      <div class="gallery">
+        <a href="images/o-26.jpg" class="g-tall"><img src="images/o-26.jpg" alt="Murdered-out Rolls-Royce Ghost after a full exterior detail" loading="lazy"></a>
+        <a href="images/o-24.jpg" class="g-tall"><img src="images/o-24.jpg" alt="Deep gloss on a blue BMW M8 hood" loading="lazy"></a>
+        <a href="images/o-21.jpg" class="g-wide"><img src="images/o-21.jpg" alt="Freshly detailed Toyota Camry next to the OMC mobile unit" loading="lazy"></a>
+        <a href="images/o-25.jpg"><img src="images/o-25.jpg" alt="Kia Telluride front end, washed and dressed" loading="lazy"></a>
+        <a href="images/o-19.jpg"><img src="images/o-19.jpg" alt="Lifted GMC Sierra in foam during a decon wash" loading="lazy"></a>
+        <a href="images/o-27.jpg" class="g-wide"><img src="images/o-27.jpg" alt="Black Mercedes-Benz CLA with a glass-like finish" loading="lazy"></a>
+        <a href="images/o-20.jpg" class="g-tall"><img src="images/o-20.jpg" alt="Chrome wheels and clean panels on a GMC Sierra" loading="lazy"></a>
+        <a href="images/o-29.jpg"><img src="images/o-29.jpg" alt="Rolls-Royce interior detailed front to back" loading="lazy"></a>
+        <a href="images/o-22.jpg"><img src="images/o-22.jpg" alt="OMC Detailing van with logo, on site at a customer's home" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What customers say</h2>
+        <span class="tag">FROM OUR YELP PAGE</span>
+      </div>
+      <div class="quotes">
+        <!-- PLACEHOLDER REVIEWS — replace with real Yelp quotes -->
+        <blockquote class="quote"><div class="stars">★★★★★</div><p>"Placeholder review — swap in a real quote from your Yelp page here."</p><footer>— Customer name · Pacoima, CA</footer></blockquote>
+        <blockquote class="quote"><div class="stars">★★★★★</div><p>"Placeholder review — swap in a real quote from your Yelp page here."</p><footer>— Customer name · San Fernando, CA</footer></blockquote>
+        <blockquote class="quote"><div class="stars">★★★★★</div><p>"Placeholder review — swap in a real quote from your Yelp page here."</p><footer>— Customer name · Sylmar, CA</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Book a detail</h2>
+        <p>Text or call with your vehicle, its condition, and where it's parked — we'll send pricing and the next available slot. Most appointments are confirmed same day.</p>
+        <div class="hero-cta" style="margin-top:30px">
+          <a class="btn btn-solid" href="tel:+18189431944">Call or text (818) 943-1944</a>
+          <a class="btn" href="https://www.instagram.com/omcmobiledetailing" rel="noopener">@omcmobiledetailing</a>
+        </div>
+        <figure class="contact-photo">
+          <img src="images/o-30.jpg" alt="OMC Detailing branded air freshener left in a finished car" loading="lazy">
+          <figcaption>Every detail leaves with one of these.</figcaption>
+        </figure>
+      </div>
+      <div class="info">
+        <div><b>Service area</b>Pacoima · San Fernando · Sylmar · Arleta · Mission Hills · greater SFV</div>
+        <div><b>Hours</b>Mon–Sat 8:00 AM – 6:00 PM<br>Sun by appointment</div>
+        <div><b>Find us</b><a href="https://www.yelp.com/biz/omc-detailing-pacoima-3" rel="noopener">Yelp — OMC Detailing</a><br><a href="https://www.instagram.com/omcmobiledetailing" rel="noopener">Instagram — @omcmobiledetailing</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site wrap">
+  <span class="fl"><img src="images/logo.jpg" alt="">© 2026 OMC Detailing · Pacoima, CA</span>
+  <span>Car wash mobile &amp; detailing · The deep clean expert</span>
+</footer>
+
+</body>
+</html>
